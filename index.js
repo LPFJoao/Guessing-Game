@@ -11,7 +11,14 @@ const guessInput = document.getElementById("guessInput");
 const resultMessage = document.getElementById("resultMessage");
 const resetGame = document.getElementById("resetGame");
 
-mySubmit.onclick = function() {
+
+mySubmit.onclick = submitGuess;
+guessInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitGuess();
+    }
+});
+function submitGuess() {
     if (!running) return;
 
     let guess = Number(guessInput.value);
@@ -23,9 +30,9 @@ mySubmit.onclick = function() {
     } else {
         attempts++;
         if (guess < answer) {
-            resultMessage.textContent = "Too low! Try again.";
+            resultMessage.textContent = `Your guess ${guess} is Too low! Try again.`;
         } else if (guess > answer) {
-            resultMessage.textContent = "Too high! Try again.";
+            resultMessage.textContent = `Your guess ${guess} is Too high! Try again.`;
         } else {
             resultMessage.textContent = `Congratulations! You guessed the number ${answer} in ${attempts} attempts.`;
             running = false;
