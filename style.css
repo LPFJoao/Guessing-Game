@@ -1,0 +1,19 @@
+body {
+    font-family: Verdana;
+    font-size: 2em;
+    background-color: darkslategray;
+}
+
+header {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+#gameContainer {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
